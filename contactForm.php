@@ -2,7 +2,7 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<title>Contact</title>
+	<title>ContactForm</title>
 </head>
 <body>
 
