@@ -5,15 +5,12 @@
 </head>
 <body>
 
-	<form method="post" action="groupeForm.php">
-		<label for="groupe1">Groupe1</label>
-		<input type="text" name="goupe1">
-
-
-
-
+	<form action="groupeTable.php" method="post">
+		<label for="groupe">Ajouter un groupe :</label>
+		<input type="text" name="groupe">
+		<button type="submit" value="Valider">Valider</button> 
+			
 	</form>
-
 
 </body>
 </html>

@@ -8,9 +8,7 @@ catch (Exception $e)
 {
         die('Erreur : ' . $e->getMessage());
 }
-
-
-
+	
 // on récupére le contenu des inputs
 $nom = $_POST['lastName'];
 $prenom = $_POST['firstName'];
@@ -23,8 +21,9 @@ $telephone = $_POST['phone'];
 // on vérifie que les inputs ne soient pas vides
 if (!empty($_POST['lastName']) && !empty($_POST['firstName']) && !empty($_POST['company']) && !empty($_POST['birthDate']) && !empty($_POST['address']) && !empty($_POST['phone'])) {
 
+	echo '<script>alert("Votre saisie a bien été sauvegardé !");</script>';
 
-// on envoye le contenu des inputs dans la table
+// on envoie le contenu des inputs dans la table
 $req = $bdd -> prepare ('INSERT INTO contact_annuaire (lastName, firstName, company, birthDate, address, phone)
 VALUES (:lastName, :firstName, :company, :birthDate, :address, :phone)');
 $req->execute(array(
@@ -35,8 +34,9 @@ $req->execute(array(
 	'address' => $adresse,
 	'phone' => $telephone
 	)); 
+
 } else {
-	echo 'error !';
+	echo '<script>alert("Une erreur est survenue, votre saisie n\'a pas pû être prise en compte !");</script>';
 }
 
 // on récupére le contenu de la table 
