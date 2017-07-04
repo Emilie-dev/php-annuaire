@@ -36,7 +36,7 @@ $req->execute(array(
 	)); 
 
 } else {
-	echo 'Une erreur est survenue, votre saisie n\'a pas pû être prise en compte :(';
+	echo 'Erreur, veuillez remplir le formulaire :(';
 }
 
 
