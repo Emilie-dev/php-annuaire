@@ -22,6 +22,18 @@
 		<input type="text" name="address">
 		<label for="phone">Téléphone :</label>
 		<input  type="text" name="phone">
+
+		<h2>Groupes :</h2>
+		<label for="patate">patate</label>
+		<input type="checkbox" name="grp[]" value="2">
+		<label for="chocolat">chocolat</label>
+		<input type="checkbox" name="grp[]" value="8">
+		<label for="pomme">pomme</label>
+		<input type="checkbox" name="grp[]" value="9">
+		<label for="chouquette">chouquette</label>
+		<input type="checkbox" name="grp[]" value="10">
+
+
 		<input type="submit" value="Valider">
 		
 
