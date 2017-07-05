@@ -54,6 +54,14 @@ foreach ($groupe as $value) {
 // var_dump($id);
 // var_dump($groupe);
 
+
+//  modifier un contact à faire
+$bdd->exec('UPDATE table SET nom = nouveau_nom WHERE nom = \'nom_a_modifier\'');
+
+
+// supprimer un contact à faire
+$bdd->exec('DELETE FROM contact_annuaire WHERE nom = ""');
+
 // j'affiche le contenu de la table dans un tableau HTML
 ?>
 <!DOCTYPE html>
@@ -88,6 +96,7 @@ catch (Exception $e)
         die('Erreur : ' . $e->getMessage());
 }
 
+// on joint les trois tables
 $reponse = $bdd->query('SELECT * FROM associer 
 	INNER JOIN contact_annuaire ON associer.fk_contact = contact_annuaire.id
 	INNER JOIN groupe_contact ON associer.fk_groupe = groupe_contact.id
@@ -96,11 +105,24 @@ $reponse = $bdd->query('SELECT * FROM associer
 
 while ($donnees=$reponse-> fetch()) {
 	
-  		echo '<tr><td>'.$donnees['lastName'].'</td><td>'.$donnees['firstName'].'</td><td>'.$donnees['company'].'</td><td>'.$donnees['birthDate'].'</td><td>'.$donnees['address'].'</td><td>'.$donnees['phone'].'</td><td>'.$donnees['groupe'].'</td></tr>';
+  		echo '<tr>
+  				<td>'.$donnees['lastName'].'</td>
+  				<td>'.$donnees['firstName'].'</td>
+  				<td>'.$donnees['company'].'</td>
+  				<td>'.$donnees['birthDate'].'</td>
+  				<td>'.$donnees['address'].'</td>
+  				<td>'.$donnees['phone'].'</td>
+  				<td>'.$donnees['groupe'].'</td>
+  				<td><form method="post" action="contactTable.php">
+  						<input type="hidden" name="update" value='.$donnees['id'].'>
+  						<button type="submit">supprimer</button></form></td>
+  			 </tr>';
 }
 
 // var_dump($donnees);
-?>
 
+
+?>
+	</tbody>
 </body>
 </html> 
